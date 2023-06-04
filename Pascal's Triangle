@@ -1,1 +1,35 @@
+tried to solve without dp
+
+#include <bits/stdc++.h>
+unsigned long long int fact(int n) {
+        if (n == 0)
+            return 1;
+        unsigned long long int res = 1;
+        for (unsigned long long int i = 2; i <= n; i++)
+            res = res * i;
+        return res;
+    }
+
+    unsigned long long int nCr(int n, int r) {
+        return fact(n) / (fact(r) * fact(n - r));
+    }
+
+
+
+vector<vector<long long int>> printPascal(int numRows) 
+{
+  vector<vector<int>> ans;
+        int n = 0;
+        int r = 0;
+        while (n < numRows) {
+            vector<int> arr;
+            for (int i = 0; i < n; i++) {
+                arr.push_back(static_cast<int>(nCr(n, i)));
+            }
+            ans.push_back(arr);
+            n++;
+        }
+        return ans;
+
+}
 
